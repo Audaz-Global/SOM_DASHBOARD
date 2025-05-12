@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>🎵 Painel de Músicas</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 40px;
+    }
+    button {
+      padding: 15px 30px;
+      margin: 10px;
+      font-size: 1em;
+      background-color: #5b86e5;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #4b75c4;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎶 Escolha uma música</h1>
+
+  <button onclick="tocar('vem_carguinha.mp3')">Vem Carguinha</button>
+    <button onclick="tocar('vem_carguinha_2.mp3')">Vem Carguinha 2</button>
+    <button onclick="tocar('vem_carguinha_3.mp3')">Vem Carguinha 3</button>
+    <button onclick="tocar('vem_carguinha_4.mp3')">Vem Carguinha 4</button>
+    <button onclick="tocar('vem_carguinha_5.mp3')">Vem Carguinha 5</button>
+    <button onclick="tocar('vem_carguinha_6.mp3')">Vem Carguinha 6</button>
+    <button onclick="tocar('vem_carguinha_7.mp3')">Vem Carguinha 7</button>
+
+  <script>
+    function tocar(nomeArquivo) {
+      fetch('/tocar-musica', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ arquivo: nomeArquivo })
+      }).then(res => res.json())
+        .then(data => console.log(data))
+        .catch(err => console.error(err));
+    }
+  </script>
+</body>
+</html>
