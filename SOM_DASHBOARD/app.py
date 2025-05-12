@@ -25,3 +25,7 @@ def tocar_musica():
         return jsonify({"mensagem": f"Registrado no banco: {nome}"}), 200
     except Exception as e:
         return jsonify({"erro": str(e)}), 500
+
+# 🚨 Adicione este bloco no final:
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=8000)
