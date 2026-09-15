@@ -23,8 +23,8 @@ flowchart TD
     end
 
     Celular((Usuário)) -->|Clica no Botão| App
-    App -->|1. Insere (nome do arquivo)| DB
-    Cliente -.->|2. Polling (1 seg)| DB
+    App -->|1. Insere nome do arquivo| DB
+    Cliente -.->|2. Polling 1 seg| DB
     DB -->|3. Retorna novo ID| Cliente
     Cliente -->|4. Lê o caminho físico| MP3
     Cliente -->|5. Dispara Execução| Player
